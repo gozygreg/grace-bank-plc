@@ -44,11 +44,31 @@ def welcome_to_gracebank():
     print(gb_logo)
     print("Hi there! Welcome to Grace Bank Plc.\n")
     print("...the Bank of champions")
-    code_execution_delay("press ANY button to start....\n")
+    code_execution_delay("\npress ANY button to start....\n")
     input("")
     code_execution_delay(
         "\nGBPlc-GBPlc-GBPlc------GBPlc-GBPlc-GBPlc-GBPlc"
         "------GBPlc-GBPlc-GBPlc------\n")
 
 
+def login():
+    """
+    Customer login their account name which will be verified
+    """
+    while True:
+        account_name = input(
+            "Enter your account name below. "
+            "\nIf you are new customers, create an account name "
+            "which should be atleast one number. \n"
+        ).lower()
+
+        if account_name.isalpha():
+            print(
+                "\nAccount name must consit of atleast one number"
+                "Please try again"
+            )
+        return account_name
+
+
 welcome_to_gracebank()
+login()
