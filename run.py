@@ -107,33 +107,18 @@ def existing_customer(account_name):
         print(f"You have £{float(balance):.2f}\n")
 
         return customers, float(balance)
+    else:
+        code_execution_delay("..................finding customer\n")
+        print("You are not a customer yet\n")
+        input("Click any key to register with GBPlc: ")
+        print(f"\nHi {account_name}, Welcome to GBPlc; the Bank of Champions")
+        return account_name, 0
 
 
 user = login()
 
 
 existing_customer(user)
-    # if customer_in_database:
-
-    #     # Find username from database (spreadsheet)
-    #     last_cell = customers.findall(account_name, in_column=1)[-1]
-    #     # Gets user previus balance from the spreadsheet
-    #     balance = customers.row_values(last_cell.row)[-1]
-    #     code_execution_delay("User checking....\n")
-    #     code_execution_delay("User found")
-    #     code_execution_delay(
-    #         f"\nWelcome back {account_name}.. "
-    #         f"Your current account balance is: £{float(balance):.2f}\n"
-    #     )
-
-    #     return account_name, float(balance)
-    # else:
-    #     code_execution_delay("User checking....")
-    #     print("\nUsername not found\n" "Creating new user...")
-    #     time.sleep(1.4)
-    #     print(f"\nHello {account_name}, Thanx for joining GBPlc")
-    #     return account_name, 0
-
 
 def main():
     """
