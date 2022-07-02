@@ -50,6 +50,19 @@ def welcome_to_gracebank():
         "\nGBPlc-GBPlc-GBPlc------GBPlc-GBPlc-GBPlc-GBPlc"
         "------GBPlc-GBPlc-GBPlc------\n")
 
+    def validate_data(menu_choice):
+        """
+        Function to ensure customers input the right data
+        and to prevent app from breaking.
+        """
+        try:
+            if menu_choice != d or menu_choice != w:
+                print("Invalid choice, Try again")
+            if menu_choice != d or menu_choice != e:
+                print("Invalid choice, Try again")
+        except ValueError:
+            print("Invalid choice: Only letters d,w,b,e allowed")
+
 
 def login():
     """
@@ -80,7 +93,7 @@ def existing_customer(account_name):
     # Google Spreadsheet
     customers = SHEET.worksheet("customers")
 
-    customer_in_database = customers.find(account_name, in_column=1)[-1]
+    # customer_in_database = customers.find(account_name, in_column=1)[-1]
     if customer_in_database:
 
         # Find username from database (spreadsheet)
@@ -109,7 +122,15 @@ def main():
     """
     welcome_to_gracebank()
     user = login()
-    check_user, balance = existing_customer(user)
+    # check_user, balance = existing_customer(user)
+
+    while True:
+        code_execution_delay("------------------")
+        print("GBPlc Main Menu")
+        print("D - Deposit funds")
+        print("W - Withdraw funds")
+        print("B - Check your balance")
+        print("E - Exit bank")
 
 
 if __name__ == "__main__":
