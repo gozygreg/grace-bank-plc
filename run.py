@@ -93,11 +93,20 @@ def existing_customer(account_name):
     # Google Spreadsheet
     customers = SHEET.worksheet("customers")
 
+    # get all data in googlesheet and assign them to a variable
     customer_in_database = customers.find(account_name, in_column=1)
-    print(customers)
-    print(customer_in_database)
-    data = customers.get_all_values()
-    print(data)
+    if customer_in_database:
+
+        # Obtain account_name from spreadsheet
+        last_transaction = customers.findall(account_name, in_column=1)[-1]
+
+        # Obtain customer balance from last transaction
+        balance = customers.row_values(last_transaction.row)[-1]
+        code_execution_delay("..................finding customer\n")
+        print(f"\nDear {account_name}, Welcome back")
+        print(f"You have £{float(balance):.2f}\n")
+
+        return customers, float(balance)
 
 
 user = login()
