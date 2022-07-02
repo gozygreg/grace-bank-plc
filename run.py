@@ -20,11 +20,11 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('grace_bank')
 
-customers = SHEET.worksheet('customers')
+# customers = SHEET.worksheet('customers')
 
-data = customers.get_all_values()
+# data = customers.get_all_values()
 
-print(data)
+# print(data)
 
 
 def code_execution_delay(information):
@@ -59,16 +59,58 @@ def login():
         account_name = input(
             "Enter your account name below. "
             "\nIf you are new customers, create an account name "
-            "which should be atleast one number. \n"
+            "which should have atleast one number. \n"
         ).lower()
 
         if account_name.isalpha():
             print(
-                "\nAccount name must consit of atleast one number"
+                "\nAccount name must consit of atleast one number. "
                 "Please try again"
             )
         return account_name
 
 
-welcome_to_gracebank()
-login()
+def existing_customer(account_name):
+    """
+    Check if account_name is present in google worksheet.
+    Store account_name if customer is new.
+    if old customer, assess previous balance.
+    """
+
+    # Google Spreadsheet
+    customers = SHEET.worksheet("customers")
+
+    customer_in_database = customers.find(account_name, in_column=1)[-1]
+    if customer_in_database:
+
+        # Find username from database (spreadsheet)
+        last_cell = customers.findall(account_name, in_column=1)[-1]
+        # Gets user previus balance from the spreadsheet
+        balance = customers.row_values(last_cell.row)[-1]
+        code_execution_delay("User checking....\n")
+        code_execution_delay("User found")
+        code_execution_delay(
+            f"\nWelcome back {account_name}.. "
+            f"Your current account balance is: £{float(balance):.2f}\n"
+        )
+
+        return account_name, float(balance)
+    else:
+        code_execution_delay("User checking....")
+        print("\nUsername not found\n" "Creating new user...")
+        time.sleep(1.4)
+        print(f"\nHello {account_name}, Thanx for joining GBPlc")
+        return account_name, 0
+
+
+def main():
+    """
+    To perform multiple fuctions
+    """
+    welcome_to_gracebank()
+    user = login()
+    check_user, balance = existing_customer(user)
+
+
+if __name__ == "__main__":
+    main()
