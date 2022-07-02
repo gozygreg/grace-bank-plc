@@ -93,27 +93,37 @@ def existing_customer(account_name):
     # Google Spreadsheet
     customers = SHEET.worksheet("customers")
 
-    # customer_in_database = customers.find(account_name, in_column=1)[-1]
-    if customer_in_database:
+    customer_in_database = customers.find(account_name, in_column=1)
+    print(customers)
+    print(customer_in_database)
+    data = customers.get_all_values()
+    print(data)
 
-        # Find username from database (spreadsheet)
-        last_cell = customers.findall(account_name, in_column=1)[-1]
-        # Gets user previus balance from the spreadsheet
-        balance = customers.row_values(last_cell.row)[-1]
-        code_execution_delay("User checking....\n")
-        code_execution_delay("User found")
-        code_execution_delay(
-            f"\nWelcome back {account_name}.. "
-            f"Your current account balance is: £{float(balance):.2f}\n"
-        )
 
-        return account_name, float(balance)
-    else:
-        code_execution_delay("User checking....")
-        print("\nUsername not found\n" "Creating new user...")
-        time.sleep(1.4)
-        print(f"\nHello {account_name}, Thanx for joining GBPlc")
-        return account_name, 0
+user = login()
+
+
+existing_customer(user)
+    # if customer_in_database:
+
+    #     # Find username from database (spreadsheet)
+    #     last_cell = customers.findall(account_name, in_column=1)[-1]
+    #     # Gets user previus balance from the spreadsheet
+    #     balance = customers.row_values(last_cell.row)[-1]
+    #     code_execution_delay("User checking....\n")
+    #     code_execution_delay("User found")
+    #     code_execution_delay(
+    #         f"\nWelcome back {account_name}.. "
+    #         f"Your current account balance is: £{float(balance):.2f}\n"
+    #     )
+
+    #     return account_name, float(balance)
+    # else:
+    #     code_execution_delay("User checking....")
+    #     print("\nUsername not found\n" "Creating new user...")
+    #     time.sleep(1.4)
+    #     print(f"\nHello {account_name}, Thanx for joining GBPlc")
+    #     return account_name, 0
 
 
 def main():
@@ -133,5 +143,5 @@ def main():
         print("E - Exit bank")
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
