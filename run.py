@@ -58,7 +58,7 @@ def welcome_to_gracebank():
         try:
             if menu_choice != d or menu_choice != w:
                 print("Invalid choice, Try again")
-            if menu_choice != d or menu_choice != e:
+            if menu_choice != b or menu_choice != e:
                 print("Invalid choice, Try again")
         except ValueError:
             print("Invalid choice: Only letters d,w,b,e allowed")
@@ -115,10 +115,22 @@ def existing_customer(account_name):
         return account_name, 0
 
 
-user = login()
+def deposit():
+    """
+    Function to allow customers deposit funds
+    """
+    deposit_amt = input("Enter amount you want to deposit:\n£")
+    return deposit_amt
 
 
-existing_customer(user)
+deposit()
+
+
+# user = login()
+
+
+# existing_customer(user)
+
 
 def main():
     """
@@ -126,7 +138,7 @@ def main():
     """
     welcome_to_gracebank()
     user = login()
-    # check_user, balance = existing_customer(user)
+    existing_customer(user)
 
     while True:
         code_execution_delay("------------------")
