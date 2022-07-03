@@ -56,9 +56,9 @@ def welcome_to_gracebank():
         and to prevent app from breaking.
         """
         try:
-            if menu_choice != d or menu_choice != w:
+            if menu_choice != "d" or menu_choice != "w":
                 print("Invalid choice, Try again")
-            if menu_choice != b or menu_choice != e:
+            if menu_choice != "b" or menu_choice != "e":
                 print("Invalid choice, Try again")
         except ValueError:
             print("Invalid choice: Only letters d,w,b,e allowed")
@@ -141,13 +141,26 @@ def main():
     existing_customer(user)
 
     while True:
-        code_execution_delay("------------------")
-        print("GBPlc Main Menu")
+        code_execution_delay("---------------")
+        print("---Main Menu---")
+        print("---------------")
         print("D - Deposit funds")
         print("W - Withdraw funds")
         print("B - Check your balance")
         print("E - Exit bank")
 
+        choice = input("\nEnter your menu choice here: ")
+        if choice == "d":
+            print("depositing some money")
+        elif choice == "w":
+            print("withdrawing some money")
+        elif choice == "b":
+            print("checking my balance")
+        elif choice == "e":
+            print(f"\nThank you for banking with us, {user}")
+        else:
+            validate_data(choice)
 
-# if __name__ == "__main__":
-#     main()
+
+if __name__ == "__main__":
+    main()
