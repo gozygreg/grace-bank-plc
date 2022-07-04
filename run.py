@@ -50,18 +50,18 @@ def welcome_to_gracebank():
         "\nGBPlc-GBPlc-GBPlc------GBPlc-GBPlc-GBPlc-GBPlc"
         "------GBPlc-GBPlc-GBPlc------\n")
 
-    def validate_data(menu_choice):
-        """
-        Function to ensure customers input the right data
-        and to prevent app from breaking.
-        """
-        try:
-            if menu_choice != "d" or menu_choice != "w":
-                print("Invalid choice, Try again")
-            if menu_choice != "b" or menu_choice != "e":
-                print("Invalid choice, Try again")
-        except ValueError:
-            print("Invalid choice: Only letters d,w,b,e allowed")
+
+def validate_data(menu_choice):
+    """
+    Function to ensure customers input the right data
+    and to prevent app from breaking.
+    """
+    try:
+        if menu_choice != "d" or menu_choice != "w" or \
+             menu_choice != "b" or menu_choice != "e":
+            print("Invalid choice, Try again")
+    except ValueError:
+        print("Invalid choice: Only letters d,w,b,e allowed")
 
 
 def login():
@@ -115,21 +115,17 @@ def existing_customer(account_name):
         return account_name, 0
 
 
-def deposit():
+def deposit(user, balance):
     """
     Function to allow customers deposit funds
     """
-    deposit_amt = input("Enter amount you want to deposit:\n£")
+    deposit_amt = float(input("Enter amount you want to deposit:\n£"))
+    current_amt = balance + deposit_amt
+    
+    # Code to insert customer deposit in google sheet data base
+    append_deposit = [user, deposit_amt, "", current_amt]
+    SHEET.worksheet("customers").append_row(append_deposit)
     return deposit_amt
-
-
-deposit()
-
-
-# user = login()
-
-
-# existing_customer(user)
 
 
 def main():
@@ -138,7 +134,7 @@ def main():
     """
     welcome_to_gracebank()
     user = login()
-    existing_customer(user)
+    check_user, balance = existing_customer(user)
 
     while True:
         code_execution_delay("---------------")
@@ -151,7 +147,7 @@ def main():
 
         choice = input("\nEnter your menu choice here: ")
         if choice == "d":
-            print("depositing some money")
+            deposit(check_user, balance)
         elif choice == "w":
             print("withdrawing some money")
         elif choice == "b":
