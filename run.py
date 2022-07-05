@@ -118,7 +118,6 @@ def existing_customer(account_name):
 def deposit(customer, balance):
     """
     Function to allow customers deposit funds.
-    Allow overdraft if customer has insufficient funds
     """
     while True:
         deposit_amt = input("Enter amount you want to deposit:\n£")
@@ -141,6 +140,7 @@ def deposit(customer, balance):
 def withdraw(customer, amount):
     """
     Function that allow customer withdraw funds if they have sufficient money.
+    Allow overdraft if customer has insufficient funds
     """
     withdraw_amt = input("Enter amount you want to withdraw:\n£")
     if withdraw_amt.isdigit():
