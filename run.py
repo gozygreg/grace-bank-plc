@@ -71,8 +71,8 @@ def login():
     while True:
         account_name = input(
             "Enter your account name below. "
-            "\nIf you are new customers, create an account name "
-            "which should have atleast one number. \n"
+            "\n(If you are new customers, create an account name "
+            "which should have atleast one number) \n"
         ).lower()
 
         if account_name.isalpha():
@@ -115,17 +115,26 @@ def existing_customer(account_name):
         return account_name, 0
 
 
-def deposit(user, balance):
+def deposit(customer, balance):
     """
     Function to allow customers deposit funds
     """
-    deposit_amt = float(input("Enter amount you want to deposit:\n£"))
-    current_amt = balance + deposit_amt
-    
-    # Code to insert customer deposit in google sheet data base
-    append_deposit = [user, deposit_amt, "", current_amt]
-    SHEET.worksheet("customers").append_row(append_deposit)
-    return deposit_amt
+    while True:
+        deposit_amt = input("Enter amount you want to deposit:\n£")
+        if deposit_amt.isdigit():
+            deposit_amt = float(deposit_amt)
+
+            # Code to insert customer deposit in google sheet data base
+            append_deposit = [customer, deposit_amt, "", balance + deposit_amt]
+            SHEET.worksheet("customers").append_row(append_deposit)
+
+            print("\nTransaction ongoing.....")
+            code_execution_delay("Transaction done!")
+            print(f"£{deposit_amt:.2f} has been deposited to your account")
+        else:
+            print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
+            continue
+        return deposit_amt
 
 
 def main():
@@ -133,8 +142,8 @@ def main():
     To perform multiple fuctions
     """
     welcome_to_gracebank()
-    user = login()
-    check_user, balance = existing_customer(user)
+    customer = login()
+    identify_customer, balance = existing_customer(customer)
 
     while True:
         code_execution_delay("---------------")
@@ -147,13 +156,13 @@ def main():
 
         choice = input("\nEnter your menu choice here: ")
         if choice == "d":
-            deposit(check_user, balance)
+            deposit(identify_customer, balance)
         elif choice == "w":
             print("withdrawing some money")
         elif choice == "b":
             print("checking my balance")
         elif choice == "e":
-            print(f"\nThank you for banking with us, {user}")
+            print(f"\nThank you for banking with us, {customer}")
         else:
             validate_data(choice)
 
