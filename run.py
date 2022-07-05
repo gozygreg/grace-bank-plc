@@ -117,7 +117,8 @@ def existing_customer(account_name):
 
 def deposit(customer, balance):
     """
-    Function to allow customers deposit funds
+    Function to allow customers deposit funds.
+    Allow overdraft if customer has insufficient funds
     """
     while True:
         deposit_amt = input("Enter amount you want to deposit:\n£")
