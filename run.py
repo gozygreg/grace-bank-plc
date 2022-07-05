@@ -137,15 +137,29 @@ def deposit(customer, balance):
         return deposit_amt
 
 
-def withdraw():
+def withdraw(customer, amount):
     """
     Function that allow customer withdraw funds if they have sufficient money.
     """
-    withdraw_amt = input("Enter amount you want to deposit:\n£")
+    withdraw_amt = input("Enter amount you want to withdraw:\n£")
+    if withdraw_amt.isdigit():
+        withdraw_amt = float(withdraw_amt)
+    else:
+        print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
+
+    if withdraw_amt > amount:
+        code_execution_delay("You have insufficient funds\n")
+        print("You have gone into an unarranged")
+        print(f"overdraft of £{withdraw_amt:.2f} but have not")
+        print("been charged on this occation.")
+
+    append_amt_withdrawn = [customer, "", withdraw_amt, amount - withdraw_amt]
+    SHEET.worksheet("customers").append_row(append_amt_withdrawn)
+
+    print("\nTransaction ongoing.....")
+    code_execution_delay("Transaction done!")
+    print(f"£{withdraw_amt:.2f} has been withdrawn to your account")
     return withdraw_amt
-
-
-withdraw()
 
 
 def main():
@@ -169,7 +183,7 @@ def main():
         if choice == "d":
             deposit(identify_customer, balance)
         elif choice == "w":
-            print("withdrawing some money")
+            withdraw(customer, balance)
         elif choice == "b":
             print("checking my balance")
         elif choice == "e":
@@ -178,5 +192,5 @@ def main():
             validate_data(choice)
 
 
-# if __name__ == "__main__":
-#     # main()
+if __name__ == "__main__":
+    main()
