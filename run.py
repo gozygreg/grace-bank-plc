@@ -137,6 +137,17 @@ def deposit(customer, balance):
         return deposit_amt
 
 
+def withdraw():
+    """
+    Function that allow customer withdraw funds if they have sufficient money.
+    """
+    withdraw_amt = input("Enter amount you want to deposit:\n£")
+    return withdraw_amt
+
+
+withdraw()
+
+
 def main():
     """
     To perform multiple fuctions
@@ -167,5 +178,5 @@ def main():
             validate_data(choice)
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     # main()
