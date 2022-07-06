@@ -156,8 +156,8 @@ def withdraw(customer, amount):
             print(f"overdraft of £{withdraw_amt:.2f} but have not")
             print("been charged on this occation.")
 
-        append_amt_withdrawn = [customer, "", withdraw_amt, amount - withdraw_amt]
-        SHEET.worksheet("customers").append_row(append_amt_withdrawn)
+        append_withdrawal = [customer, "", withdraw_amt, amount - withdraw_amt]
+        SHEET.worksheet("customers").append_row(append_withdrawal)
 
         print("\nTransaction ongoing.....")
         code_execution_delay("Transaction done!")
@@ -184,7 +184,8 @@ def main():
 
         choice = input("\nEnter your menu choice here: ")
         if choice == "d":
-            deposit(identify_customer, balance)
+            fund_deposited = deposit(identify_customer, balance)
+            balance += fund_deposited
         elif choice == "w":
             withdraw(customer, balance)
         elif choice == "b":
