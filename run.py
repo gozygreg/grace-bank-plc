@@ -187,7 +187,8 @@ def main():
             fund_deposited = deposit(identify_customer, balance)
             balance += fund_deposited
         elif choice == "w":
-            withdraw(customer, balance)
+            fund_withdrawn = withdraw(customer, balance)
+            balance -= fund_withdrawn
         elif choice == "b":
             print("checking my balance")
         elif choice == "e":
