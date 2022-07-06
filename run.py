@@ -165,6 +165,16 @@ def withdraw(customer, amount):
         return withdraw_amt
 
 
+def check_account_balance():
+    """
+    Function that allows customer check how much money they have in the bank
+    """
+    print("checking account balance")
+
+
+check_account_balance()
+
+
 def main():
     """
     To perform multiple fuctions
@@ -197,5 +207,5 @@ def main():
             validate_data(choice)
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()
