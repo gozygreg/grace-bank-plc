@@ -141,6 +141,9 @@ def withdraw(customer, amount):
     """
     Function that allow customer withdraw funds if they have sufficient money.
     Allow overdraft if customer has insufficient funds
+    If withdrawal request is greater than account balance, allow customer to
+    still withdraw but subtract withdraw request from account balance to
+    workout overdraft (i.e amount customer owes the bank)
     """
 
     while True:
@@ -151,9 +154,10 @@ def withdraw(customer, amount):
             print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
 
         if withdraw_amt > amount:
+            over_draft = withdraw_amt - amount
             code_execution_delay("You have insufficient funds\n")
             print("You have gone into an unarranged")
-            print(f"overdraft of £{withdraw_amt:.2f} but have not")
+            print(f"overdraft of £{over_draft:.2f} but have not")
             print("been charged on this occation.")
 
         append_withdrawal = [customer, "", withdraw_amt, amount - withdraw_amt]
