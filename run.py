@@ -203,6 +203,7 @@ def main():
             check_account_balance(balance)
         elif choice == "e":
             print(f"\nThank you for banking with us, {customer}")
+            quit()
         else:
             validate_data(choice)
 
