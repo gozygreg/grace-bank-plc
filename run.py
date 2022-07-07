@@ -165,14 +165,14 @@ def withdraw(customer, amount):
         return withdraw_amt
 
 
-def check_account_balance():
+def check_account_balance(balance):
     """
     Function that allows customer check how much money they have in the bank
     """
-    print("checking account balance")
-
-
-check_account_balance()
+    account_balance = balance
+    code_execution_delay("...checking account balance")
+    code_execution_delay(f"Your account balance is £{account_balance:.2f}")
+    return account_balance
 
 
 def main():
@@ -200,12 +200,12 @@ def main():
             fund_withdrawn = withdraw(customer, balance)
             balance -= fund_withdrawn
         elif choice == "b":
-            print("checking my balance")
+            check_account_balance(balance)
         elif choice == "e":
             print(f"\nThank you for banking with us, {customer}")
         else:
             validate_data(choice)
 
 
-# if __name__ == "__main__":
-#     main()
+if __name__ == "__main__":
+    main()
