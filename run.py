@@ -123,17 +123,17 @@ def deposit(customer, balance):
         deposit_amt = input("Enter amount you want to deposit:\n£")
         if deposit_amt.isdigit():
             deposit_amt = float(deposit_amt)
-
-            # Code to insert customer deposit in google sheet data base
-            append_deposit = [customer, deposit_amt, "", balance + deposit_amt]
-            SHEET.worksheet("customers").append_row(append_deposit)
-
-            print("\nTransaction ongoing.....")
-            code_execution_delay("Transaction done!")
-            print(f"£{deposit_amt:.2f} has been deposited to your account")
         else:
             print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
-            continue
+
+        # Code to insert customer deposit in google sheet data base
+        append_deposit = [customer, deposit_amt, "", balance + deposit_amt]
+        SHEET.worksheet("customers").append_row(append_deposit)
+
+        print("\nTransaction ongoing.....")
+        code_execution_delay("Transaction done!")
+        print(f"£{deposit_amt:.2f} has been deposited to your account")
+
         return deposit_amt
 
 
@@ -141,7 +141,7 @@ def withdraw(customer, amount):
     """
     Function that allow customer withdraw funds if they have sufficient money.
     Allow overdraft if customer has insufficient funds
-    If withdrawal request is greater than account balance, allow customer to
+    If withdrawal request is greater than account balance, allow customer to 
     still withdraw but subtract withdraw request from account balance to
     workout overdraft (i.e amount customer owes the bank)
     """
