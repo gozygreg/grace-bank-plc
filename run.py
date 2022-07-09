@@ -5,7 +5,6 @@ from time import sleep
 # Import API from Google spreadsheet
 import gspread
 from google.oauth2.service_account import Credentials
-
 # Create logo using pyfiglet
 import pyfiglet
 
@@ -19,12 +18,6 @@ CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('grace_bank')
-
-# customers = SHEET.worksheet('customers')
-
-# data = customers.get_all_values()
-
-# print(data)
 
 
 def code_execution_delay(information):
@@ -117,11 +110,12 @@ def existing_customer(account_name):
 
 def deposit(customer, balance):
     """
-    Function to allow customers deposit funds.
+    Function to allow customers deposit funds. Also allows customers update
+    their deposit in google sheet if they add funds to their account
     """
     while True:
         deposit_amt = input("Enter amount you want to deposit:\n£")
-        if deposit_amt.isdigit():
+        if deposit_amt.replace(".", "", 1).isdigit():
             deposit_amt = float(deposit_amt)
         else:
             print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
@@ -148,7 +142,7 @@ def withdraw(customer, amount):
 
     while True:
         withdraw_amt = input("Enter amount you want to withdraw:\n£")
-        if withdraw_amt.isdigit():
+        if withdraw_amt.replace(".", "", 1).isdigit():
             withdraw_amt = float(withdraw_amt)
         else:
             print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
