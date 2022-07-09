@@ -1,11 +1,11 @@
 """
-Import the entire gspread library, so we can access any function, class
-or method within it
+importing time module that will be used to delay some code execution
 """
+from time import sleep
+# Import API from Google spreadsheet
 import gspread
 from google.oauth2.service_account import Credentials
-# importing time module that will be used to delay some code execution
-import time
+
 # Create logo using pyfiglet
 import pyfiglet
 
@@ -33,7 +33,7 @@ def code_execution_delay(information):
     flow of the program
     """
     print(information)
-    time.sleep(1.5)
+    sleep(1.5)
 
 
 def welcome_to_gracebank():
@@ -141,7 +141,7 @@ def withdraw(customer, amount):
     """
     Function that allow customer withdraw funds if they have sufficient money.
     Allow overdraft if customer has insufficient funds
-    If withdrawal request is greater than account balance, allow customer to 
+    If withdrawal request is greater than account balance, allow customer to
     still withdraw but subtract withdraw request from account balance to
     workout overdraft (i.e amount customer owes the bank)
     """
