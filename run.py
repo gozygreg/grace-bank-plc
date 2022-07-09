@@ -63,16 +63,17 @@ def login():
     """
     while True:
         account_name = input(
-            "Enter your account name below. "
-            "\n(If you are new customers, create an account name "
-            "which should have atleast one number) \n"
+            "\n(For new customers, create an account name "
+            "which must have atleast one number) \n"
+            "Enter your account name:  "
         ).lower()
 
         if account_name.isalpha():
             print(
-                "\nAccount name must consit of atleast one number. "
-                "Please try again"
+                "\nAccount name must consist of atleast one number. "
+                "Please try again\n"
             )
+            continue
         return account_name
 
 
