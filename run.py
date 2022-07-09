@@ -192,15 +192,15 @@ def main():
         print("E - Exit bank")
 
         choice = input("\nEnter your menu choice here: ")
-        if choice == "d":
+        if choice.lower() == "d":
             fund_deposited = deposit(identify_customer, balance)
             balance += fund_deposited
-        elif choice == "w":
+        elif choice.lower() == "w":
             fund_withdrawn = withdraw(customer, balance)
             balance -= fund_withdrawn
-        elif choice == "b":
+        elif choice.lower() == "b":
             check_account_balance(balance)
-        elif choice == "e":
+        elif choice.lower() == "e":
             print(f"\nThank you for banking with us, {customer}")
             quit()
         else:
