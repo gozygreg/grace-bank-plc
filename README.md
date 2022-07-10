@@ -14,13 +14,17 @@
 * [Libraries](#Libraries)
 * [Acknowledgement](#Acknowledgement)
 
-## Features
-
 ## Design
 ### Wireframe
 [Lucid app](https://www.lucidchart.com/) was used to plan the logic for this project. Below is a screenshot of the logic.
 
 ![Customer insights](https://user-images.githubusercontent.com/69070044/178149426-3586b790-93d9-4ee1-ab26-98f57e9085bd.png)
+
+## Features
+
+## Testing
+The code for this project was tested using [PEP8](http://pep8online.com/)
+<img width="1209" alt="PEP8 Validator test" src="https://user-images.githubusercontent.com/69070044/178151965-007e26ee-b15d-4ecb-9663-62236ded1b0f.png">
 
 ## Deployment
 This app was deployed to Heroku. Below are the steps taken for its deployment
