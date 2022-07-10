@@ -1,7 +1,7 @@
 # **GRACE BANK PLC (GBPlc)**
 
 ## **About the GBPlc**
-Grace Bank Plc (GBPlc) is a banking application that allows customers to perform basic banking operation such as deposting and withdrawal of funds as well as checking their account balance. The unique properties of the (GBPlc) app is that it allows customers to still withdraw funds even if they do not have enough funds in their account balance. It however does inform customers that they have gone in to an unarranged overdraft when this occurs.
+Grace Bank Plc (GBPlc) is a banking application that allows customers to perform basic banking operation such as deposting and withdrawal of funds as well as checking their account balance. The unique property of the (GBPlc) app is that it allows customers to still withdraw money even if they do not have enough funds in their account balance. It does, however, inform customers that they have gone in to an unarranged overdraft when this occurs.
 
 <img width="760" alt="GB Welcome page" src="https://user-images.githubusercontent.com/69070044/178149451-002d4e4a-d2f9-4a8a-8923-af86984a04d3.png">
 
@@ -24,7 +24,7 @@ Grace Bank Plc (GBPlc) is a banking application that allows customers to perform
 
 ## **Features**
 ### Welcome to GBPlc
-The first things customers see on the able is the bank logo, a welcome message, the bank motto and then instruction on action need to take to proceed.
+The first things customers see on the able is the bank logo, a welcome message, the bank motto and then instruction on action needed to take to proceed.
 
 ### New Customer (Register)/Existing Customer
 Customers are to type an account name of their choice while the app searches for their name on google sheet. Existing customers are welcomed and navigated to the bank main menu while new customers are promted to registered by typing any key on their device. Thus their account name will be added onto the data base (googlesheet)
@@ -35,7 +35,7 @@ Customers are to type an account name of their choice while the app searches for
 
 ### Account Name Validation
 
-Customers are asked to try again if they fail to provide valid account name. The rule that have been set fot this app is that a valid account name must comprise of atleast a number e.g 'John1' is a valid name while 'John' is not valid.
+Customers are asked to try again if they fail to provide a valid account name. A valid account name must comprise of atleast a number e.g 'John1' is a valid name while 'John' is not valid.
 
 <img width="1270" alt="account_name validation" src="https://user-images.githubusercontent.com/69070044/178149472-211744c2-00fd-4afb-a6e2-26ce52909096.png">
 
