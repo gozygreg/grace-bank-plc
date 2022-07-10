@@ -45,8 +45,12 @@ The app has 4 basic function with corresponding 4 menu options to choose from. A
  <img width="1266" alt="Deposit" src="https://user-images.githubusercontent.com/69070044/178149462-b1177919-d6b5-44ee-9946-00fa712aae60.png">
 
  ### Withdrawal
- Customers are able to withdraw funds even when their account balance is less than the requested withdrawal amount. Customers are informed that they are going into an overdraft if this is the case.
+ Customers are able to withdraw funds by choosing 'w' or 'W' for the main menu
  <img width="1271" alt="withdraw" src="https://user-images.githubusercontent.com/69070044/178149465-e6f7da6b-213e-4a13-993c-8d36b1d85981.png">
+
+ ### Overdraft
+Customers are also able to withdraw funds even when their account balance is less than the requested withdrawal amount. Customers are informed that they are going into an overdraft if this is the case.
+<img width="1274" alt="overdraft" src="https://user-images.githubusercontent.com/69070044/178153974-5283096a-1f4f-441a-a63b-61fa72cad9d8.png">
 
 ### Checking account balance
 Customers are able to check the amount they have in the their account by chosing 'b' or 'B' from the main menu.
