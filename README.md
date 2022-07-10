@@ -1,31 +1,45 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# GRACE BANK PLC (GBPlc)
 
-Welcome gozygreg,
+## About the GBPlc
 
-This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **August 17, 2021**
+<img width="760" alt="GB Welcome page" src="https://user-images.githubusercontent.com/69070044/178149451-002d4e4a-d2f9-4a8a-8923-af86984a04d3.png">
 
-## Reminders
+## Table of Contents
+* [UX](#UX)
+* [Design](#Design)
+* [Features](#Features)
+* [Testing](#Testing)
+* [Technologies](#Technologies)
+* [Deployment](#Deployment)
+* [Libraries](#Libraries)
+* [Acknowledgement](#Acknowledgement)
 
-* Your code must be placed in the `run.py` file
-* Your dependencies must be placed in the `requirements.txt` file
-* Do not edit any of the other files or your code may not deploy properly
+## Features
 
-## Creating the Heroku app
+## Design
+### Wireframe
+[Lucid app](https://www.lucidchart.com/) was used to plan the logic for this project. Below is a screenshot of the logic.
 
-When you create the app, you will need to add two buildpacks from the _Settings_ tab. The ordering is as follows:
+![Customer insights](https://user-images.githubusercontent.com/69070044/178149426-3586b790-93d9-4ee1-ab26-98f57e9085bd.png)
 
-1. `heroku/python`
-2. `heroku/nodejs`
+## Deployment
+This app was deployed to Heroku. Below are the steps taken for its deployment
+- Create and account and log in to heroku
+- Create a new app
+- Go to settings option
+- Add 'key/value' pairs. First key is CREDS and its value is copied from creds.json file on gitpod. The second key is PORT with 8000 as its value
+- Add build pack. Add python first and then nodejs second in that order.
+- Go to the top of the page, then select 'deploy tab' and then choose 'Github deployment'.
+- [Click to nnavigate to the deployed project](https://grace-bank.herokuapp.com/) 
 
-You must then create a _Config Var_ called `PORT`. Set this to `8000`
+To clone the project, navigate to the repository button on the [GitHub](https://github.com/gozygreg/grace-bank-plc) and select zip or open with Github desktop. After that, copy and paste the link to your git terminal by clicking GitHub CLI and the copy button in the code dropdown menu.
 
-If you have credentials, such as in the Love Sandwiches project, you must create another _Config Var_ called `CREDS` and paste the JSON into the value field.
+## Libraries
+The following libraries were utilised in building this project
+* [Gspread](https://docs.gspread.org/en/v3.7.0/api.html)
+* [Credentials](https://pypi.org/project/credentials/)
+* [Time/sleep](https://www.programiz.com/python-programming/time/sleep)
+* [Pyfiglet:](https://pypi.org/project/pyfiglet/0.7/) which was used to create the bank logo
 
-Connect your GitHub repository and deploy as normal.
-
-## Constraints
-
-The deployment terminal is set to 80 columns by 24 rows. That means that each line of text needs to be 80 characters or less otherwise it will be wrapped onto a second line.
-
------
-Happy coding!
+## Acknowledgement
+[Lucid app](https://www.lucidchart.com/) was used to plan the logic for this project. Below is a screenshot of the logic.
