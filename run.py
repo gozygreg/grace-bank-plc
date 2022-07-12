@@ -118,17 +118,17 @@ def deposit(customer, balance):
         deposit_amt = input("Enter amount you want to deposit:\n£")
         if deposit_amt.replace(".", "", 1).isdigit():
             deposit_amt = float(deposit_amt)
+
+            # Code to insert customer deposit in google sheet data base
+            append_deposit = [customer, deposit_amt, "", balance + deposit_amt]
+            SHEET.worksheet("customers").append_row(append_deposit)
+
+            print("\nTransaction ongoing.....")
+            code_execution_delay("Transaction done!")
+            print(f"£{deposit_amt:.2f} has been deposited to your account")
         else:
             print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
-
-        # Code to insert customer deposit in google sheet data base
-        append_deposit = [customer, deposit_amt, "", balance + deposit_amt]
-        SHEET.worksheet("customers").append_row(append_deposit)
-
-        print("\nTransaction ongoing.....")
-        code_execution_delay("Transaction done!")
-        print(f"£{deposit_amt:.2f} has been deposited to your account")
-
+            continue
         return deposit_amt
 
 
@@ -147,6 +147,7 @@ def withdraw(customer, amount):
             withdraw_amt = float(withdraw_amt)
         else:
             print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
+            continue
 
         if withdraw_amt > amount:
             over_draft = withdraw_amt - amount
