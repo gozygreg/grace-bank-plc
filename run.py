@@ -7,6 +7,8 @@ import gspread
 from google.oauth2.service_account import Credentials
 # Create logo using pyfiglet
 import pyfiglet
+from termcolor import colored
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -75,7 +77,7 @@ def login():
             )
             continue
         elif len(account_name) == 0:
-            print("Account name cannot be empty")
+            print(colored(("Account name cannot be empty"), "red"))
             continue
         return account_name
 
