@@ -74,6 +74,9 @@ def login():
                 "Please try again\n"
             )
             continue
+        elif len(account_name) == 0:
+            print("Account name cannot be empty")
+            continue
         return account_name
 
 
@@ -96,13 +99,13 @@ def existing_customer(account_name):
 
         # Obtain customer balance from last transaction
         balance = customers.row_values(last_transaction.row)[-1]
-        code_execution_delay("..................finding customer\n")
+        code_execution_delay("...........finding customer\n")
         print(f"\nDear {account_name}, Welcome back")
         print(f"You have £{float(balance):.2f}\n")
 
         return customers, float(balance)
     else:
-        code_execution_delay("..................finding customer\n")
+        code_execution_delay("...........finding customer\n")
         print("You are not a customer yet\n")
         input("Click any key to register with GBPlc: ")
         print(f"\nHi {account_name}, Welcome to GBPlc; the Bank of Champions")
@@ -182,7 +185,6 @@ def main():
     welcome_to_gracebank()
     customer = login()
     identify_customer, balance = existing_customer(customer)
-
     while True:
         code_execution_delay("---------------")
         print("---Main Menu---")
