@@ -10,6 +10,7 @@ Grace Bank Plc (GBPlc) is a banking application that allows customers to perform
 - [Features](#Features)
 - [Data Base](#Googlesheet)
 - [Testing](#Testing)
+- [Unfixed-bug](#Unfixed bug)
 - [Technologies used](#Technologies-used)
 - [Deployment](#Deployment)
 - [Libraries](#Libraries)
@@ -77,6 +78,8 @@ The code for this project was tested using [PEP8](http://pep8online.com/)
 
 <img width="1209" alt="PEP8 Validator test" src="https://user-images.githubusercontent.com/69070044/178151965-007e26ee-b15d-4ecb-9663-62236ded1b0f.png">
 
+## **Unfixed Bug and planned improvements**
+An error arises when an old customer log in again and try to deposit funds. I encountered this late and close to submittion deadline. I plan to resolve this as well as create an overdraft limit such that if customer go above this limit, they will be charged an interest of 2%.
 ## **Technologies Used**
 - [Python](https://www.python.org/)
 - [Heroku](https://id.heroku.com/login)
@@ -91,7 +94,7 @@ This app was deployed to Heroku. Below are the steps taken for its deployment
 - Add 'key/value' pairs. First key is CREDS and its value is copied from creds.json file on gitpod. The second key is PORT with 8000 as its value
 - Add build pack. Add python first and then nodejs second in that order.
 - Go to the top of the page, then select 'deploy tab' and then choose 'Github deployment'.
-- [Click to nnavigate to the deployed project](https://grace-bank.herokuapp.com/) 
+- [Click to navigate to the deployed project](https://grace-bank.herokuapp.com/) 
 
 To clone the project, navigate to the repository button on the [GitHub](https://github.com/gozygreg/grace-bank-plc) and select zip or open with Github desktop. After that, copy and paste the link to your git terminal by clicking GitHub CLI and the copy button in the code dropdown menu.
 
