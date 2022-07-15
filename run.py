@@ -53,9 +53,9 @@ def validate_data(menu_choice):
     try:
         if menu_choice != "d" or menu_choice != "w" or \
              menu_choice != "b" or menu_choice != "e":
-            print("Invalid choice, Please try again")
+            print("Invalid choice, Please try again\n")
     except ValueError:
-        print("Invalid choice: Only letters d,w,b,e allowed")
+        print("Invalid choice: Only letters d,w,b,e allowed\n")
 
 
 def login():
@@ -70,7 +70,7 @@ def login():
         ).lower()
 
         if account_name.isalpha():
-            print(
+            code_execution_delay(
                 "\nAccount name must consist of atleast one number. "
                 "Please try again\n"
             )
@@ -131,7 +131,7 @@ def deposit(customer, balance):
             code_execution_delay("Transaction done! \u2713")
             print(f"£{deposit_amt:.2f} has been deposited to your account\n")
         else:
-            print("Invalid entry. Enter valid amount eg 100")
+            print("Invalid entry. Enter valid amount eg 100\n")
             continue
         return deposit_amt
 
@@ -150,7 +150,7 @@ def withdraw(customer, amount):
         if withdraw_amt.replace(".", "", 1).isdigit():
             withdraw_amt = float(withdraw_amt)
         else:
-            print("Invalid entry. Enter valid amount eg 100")
+            print("Invalid entry. Enter valid amount eg 100\n")
             continue
 
         if withdraw_amt > amount:
@@ -175,7 +175,7 @@ def check_account_balance(balance):
     """
     account_balance = balance
     code_execution_delay("...checking account balance \u231B")
-    code_execution_delay(f"Your account balance is £{account_balance:.2f}")
+    code_execution_delay(f"Your account balance is £{account_balance:.2f}\n")
     return account_balance
 
 
