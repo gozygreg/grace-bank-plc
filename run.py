@@ -7,6 +7,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 # Create logo using pyfiglet
 import pyfiglet
+from termcolor import colored
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -52,9 +53,9 @@ def validate_data(menu_choice):
     try:
         if menu_choice != "d" or menu_choice != "w" or \
              menu_choice != "b" or menu_choice != "e":
-            print("Invalid choice, Try again")
+            print(colored(("Invalid choice, Please try again"), "red"))
     except ValueError:
-        print("Invalid choice: Only letters d,w,b,e allowed")
+        print(colored(("Invalid choice: Only letters d,w,b,e allowed"), "red"))
 
 
 def login():
@@ -75,7 +76,8 @@ def login():
             )
             continue
         elif len(account_name) == 0:
-            print("Account name cannot be empty")
+            print(colored(
+                ("Account name cannot be empty"), "red"))
             continue
         return account_name
 
@@ -130,7 +132,7 @@ def deposit(customer, balance):
             code_execution_delay("Transaction done!")
             print(f"£{deposit_amt:.2f} has been deposited to your account")
         else:
-            print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
+            print(colored(("Invalid entry. Enter valid amount eg 100"), "red"))
             continue
         return deposit_amt
 
@@ -149,15 +151,15 @@ def withdraw(customer, amount):
         if withdraw_amt.replace(".", "", 1).isdigit():
             withdraw_amt = float(withdraw_amt)
         else:
-            print("Invalid entry. Enter valid amount e.g 100 0r 200 etc")
+            print(colored(("Invalid entry. Enter valid amount eg 100"), "red"))
             continue
 
         if withdraw_amt > amount:
             over_draft = withdraw_amt - amount
             code_execution_delay("You have insufficient funds\n")
-            print("You have gone into an unarranged")
-            print(f"overdraft of £{over_draft:.2f} but have not")
-            print("been charged on this occation.")
+            print(colored(("You've gone into an unarranged overdraft"), "red"))
+            print(colored((f"of £{over_draft:.2f} but have not been"), "red"))
+            print(colored(("charged on this occation."), "red"))
 
         append_withdrawal = [customer, "", withdraw_amt, amount - withdraw_amt]
         SHEET.worksheet("customers").append_row(append_withdrawal)
