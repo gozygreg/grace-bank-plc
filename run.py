@@ -7,7 +7,6 @@ import gspread
 from google.oauth2.service_account import Credentials
 # Create logo using pyfiglet
 import pyfiglet
-from termcolor import colored
 
 
 SCOPE = [
@@ -37,7 +36,7 @@ def welcome_to_gracebank():
     """
     gb_logo = pyfiglet.figlet_format("GRACE BANK Plc")
     print(gb_logo)
-    print("Hi there! Welcome to Grace Bank Plc.\n")
+    print("Hi there! Welcome to Grace Bank Plc. \U0001F3E6\n")
     print("...the Bank of champions")
     code_execution_delay("\npress ANY button to start....\n")
     input("")
@@ -77,7 +76,7 @@ def login():
             )
             continue
         elif len(account_name) == 0:
-            print(colored(("Account name cannot be empty"), "red"))
+            print("Account name cannot be empty")
             continue
         return account_name
 
@@ -107,7 +106,7 @@ def existing_customer(account_name):
 
         return customers, float(balance)
     else:
-        code_execution_delay("...........finding customer\n")
+        code_execution_delay("...........finding customer \u231B\n")
         print("You are not a customer yet\n")
         input("Click any key to register with GBPlc: ")
         print(f"\nHi {account_name}, Welcome to GBPlc; the Bank of Champions")
@@ -128,9 +127,9 @@ def deposit(customer, balance):
             append_deposit = [customer, deposit_amt, "", balance + deposit_amt]
             SHEET.worksheet("customers").append_row(append_deposit)
 
-            print("\nTransaction ongoing.....")
-            code_execution_delay("Transaction done!")
-            print(f"£{deposit_amt:.2f} has been deposited to your account")
+            code_execution_delay("\n.....transaction ongoing \u231B")
+            code_execution_delay("Transaction done! \u2713")
+            print(f"£{deposit_amt:.2f} has been deposited to your account\n")
         else:
             print("Invalid entry. Enter valid amount eg 100")
             continue
@@ -156,7 +155,7 @@ def withdraw(customer, amount):
 
         if withdraw_amt > amount:
             over_draft = withdraw_amt - amount
-            code_execution_delay("You have insufficient funds\n")
+            code_execution_delay("\nYou have insufficient funds\n")
             print("You've gone into an unarranged overdraft")
             print(f"of £{over_draft:.2f} but have not been")
             print("charged on this occation.")
@@ -164,9 +163,9 @@ def withdraw(customer, amount):
         append_withdrawal = [customer, "", withdraw_amt, amount - withdraw_amt]
         SHEET.worksheet("customers").append_row(append_withdrawal)
 
-        print("\nTransaction ongoing.....")
-        code_execution_delay("Transaction done!")
-        print(f"£{withdraw_amt:.2f} has been withdrawn to your account")
+        code_execution_delay("\n.....transaction ongoing \u231B")
+        code_execution_delay("Transaction done! \u2713")
+        print(f"£{withdraw_amt:.2f} has been withdrawn to your account\n")
         return withdraw_amt
 
 
@@ -175,7 +174,7 @@ def check_account_balance(balance):
     Function that allows customer check how much money they have in the bank
     """
     account_balance = balance
-    code_execution_delay("...checking account balance")
+    code_execution_delay("...checking account balance \u231B")
     code_execution_delay(f"Your account balance is £{account_balance:.2f}")
     return account_balance
 
