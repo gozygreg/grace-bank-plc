@@ -100,10 +100,10 @@ To clone the project, navigate to the repository button on the [GitHub](https://
 
 ## **Libraries**
 The following libraries were utilised in building this project
-* [Gspread](https://docs.gspread.org/en/v3.7.0/api.html)
-* [Credentials](https://pypi.org/project/credentials/)
-* [Time/sleep](https://www.programiz.com/python-programming/time/sleep)
-* [Pyfiglet:](https://pypi.org/project/pyfiglet/0.7/) which was used to create the bank logo
+* [Gspread](https://docs.gspread.org/en/v3.7.0/api.html) to enable the opening, accessing and reading of googlesheet data
+* [Credentials](https://pypi.org/project/credentials/) they serve as unique identifiers required to access my API
+* [Time/sleep](https://www.programiz.com/python-programming/time/sleep) was used to create a timely flow of event as customer perform transactiond
+* [Pyfiglet](https://pypi.org/project/pyfiglet/0.7/) was used to create the bank logo
 
 ## **Acknowledgement**
 - Code institute love sandwiches project was quit instrumental in helping me build this app. I was able to follow the example to help me incooporate google API

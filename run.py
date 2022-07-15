@@ -75,7 +75,7 @@ def login():
                 "Please try again\n"
             )
             continue
-        elif len(account_name) == 0:
+        elif len(account_name.strip()) == 0:
             print("Account name cannot be empty")
             continue
         return account_name
