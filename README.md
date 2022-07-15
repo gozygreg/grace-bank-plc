@@ -10,7 +10,7 @@ Grace Bank Plc (GBPlc) is a banking application that allows customers to perform
 - [Features](#Features)
 - [Data Base](#Googlesheet)
 - [Testing](#Testing)
-- [Unfixed-bug](#Unfixed bug)
+- [Unfixed Bug](#UnfixedBug)
 - [Technologies used](#Technologies-used)
 - [Deployment](#Deployment)
 - [Libraries](#Libraries)
@@ -78,7 +78,7 @@ The code for this project was tested using [PEP8](http://pep8online.com/)
 
 <img width="1209" alt="PEP8 Validator test" src="https://user-images.githubusercontent.com/69070044/178151965-007e26ee-b15d-4ecb-9663-62236ded1b0f.png">
 
-## **Unfixed Bug and planned improvements**
+## **UnfixedBug**
 An error arises when an old customer log in again and try to deposit funds. I encountered this late and close to submittion deadline. I plan to resolve this as well as create an overdraft limit such that if customer go above this limit, they will be charged an interest of 2%.
 ## **Technologies Used**
 - [Python](https://www.python.org/)
